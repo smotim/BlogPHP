@@ -2,41 +2,37 @@
 
 namespace App\Models;
 
+use App\Traits\HasRolesAndPermissions;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable, HasRoles;
+    use Notifiable, HasRolesAndPermissions;
 
     /**
-     * Атрибуты, которые можно назначать массово.
+     * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name', 'email', 'password',
     ];
 
     /**
-     * Атрибуты, которые должны быть скрыты для массивов.
+     * The attributes that should be hidden for arrays.
      *
      * @var array
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password', 'remember_token',
     ];
 
     /**
-     * Атрибуты, которые нужно приводить к собственным
-     * типам.
+     * The attributes that should be cast to native types.
+     *
      * @var array
      */
     protected $casts = [
