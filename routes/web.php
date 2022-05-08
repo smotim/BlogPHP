@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
@@ -23,8 +24,8 @@ use App\Http\Controllers\ProductController;
 //});
 
 //Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/auth', [App\Http\Controllers\AuthController::class, 'index'])->name('auth');
+// TODO создать роут для новостной ленты и закрепить его на пустую строку. авторизации сделать auth
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
@@ -38,3 +39,5 @@ Auth::routes();
 //Route::get('/', function() {
 //    return view('roles/index');
 //});
+Route::get('', [HomeController::class, 'index']);
+Route::post('/logout', );

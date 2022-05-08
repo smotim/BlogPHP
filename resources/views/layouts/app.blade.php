@@ -53,7 +53,6 @@
                     @endguest
                 </ul>
             </div>
-        </div>
     </nav>
 
     <main class="py-4">

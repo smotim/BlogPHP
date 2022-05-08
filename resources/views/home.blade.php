@@ -1,23 +1,33 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="{{ asset('/js/ckeditor.js') }}"
+            type="text/javascript" charset="utf-8" ></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CKEditor</title>
+    {{-- Bootstrap --}}
+    <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
+    {{-- jQuery --}}
+    <script src="{{ asset('/js/jquery.js') }}" type="text/javascript" charset="utf-8" ></script>
+    {{-- JS Bootstrap --}}
+    <script src="{{ asset('/js/bootstrap.js') }}" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
 
-@section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
+    <h1>Добавляем поддержку CKEditor</h1>
+    <div class="row">
+        <div class="col-md-12">
+                           <textarea name="editor1" id="editor1">
+                           </textarea>
         </div>
     </div>
+    <script>
+        var editor = CKEDITOR.replace( 'editor1' );
+    </script>
+
 </div>
-@endsection
+</body>
+</html>
