@@ -17,7 +17,8 @@ class CreateNewsTable extends Migration
             $table->increments('id');
             $table->string('user_email');
             $table->string('heading');
-            $table->longText('content');
+            $table->longText('summary');
+            $table->LongText('content');
             $table->timestamps();
             $table->foreign('user_email')->references('email')->on('users');
         });
