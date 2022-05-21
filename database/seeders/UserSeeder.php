@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
         $user1->permissions()->attach($manageRoles);
 
         $user2 = new User();
-        $user2->name = 'Максим Логвинов';
+        $user2->name = 'Логвинов Максим';
         $user2->email = 'max@gmail.com';
         $user2->password = bcrypt('456');
         $user2->save();
