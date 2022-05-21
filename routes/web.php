@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,10 +29,13 @@ Route::get('/auth', [App\Http\Controllers\AuthController::class, 'index'])->name
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
 });
 
-//Route::get('/roles', [App\Http\Controllers\RoleController::class, 'index']);
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news');
+Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
+
+Route::get('/news/{page}', [\App\Http\Controllers\ArticleController::class, 'page'])->name('page');
+
 
 Auth::routes();
 
@@ -40,4 +43,3 @@ Auth::routes();
 //    return view('roles/index');
 //});
 Route::get('', [HomeController::class, 'index']);
-Route::post('/logout', );

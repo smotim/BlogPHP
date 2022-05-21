@@ -12,6 +12,10 @@ use Illuminate\Support\Arr;
 
 class UserController extends Controller
 {
+    public function __cunstruct(){
+        $this->middleware('role:admin', ['only' => ['edit']]);
+    }
+
     /**
      * Отобразить список ресурсов
      *

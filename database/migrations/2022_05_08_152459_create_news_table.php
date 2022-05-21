@@ -15,12 +15,12 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_email');
+            $table->string('user_name');
             $table->string('heading');
             $table->longText('summary');
             $table->LongText('content');
             $table->timestamps();
-            $table->foreign('user_email')->references('email')->on('users');
+            $table->foreign('user_name')->references('name')->on('users');
         });
     }
 
