@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +19,27 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Auth::routes();
+Route::get('/auth', [App\Http\Controllers\AuthController::class, 'index'])->name('auth');
+// TODO создать роут для новостной ленты и закрепить его на пустую строку. авторизации сделать auth
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
-    Route::resource('products', ProductController::class);
 });
+
+Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news');
+Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
+
+Route::get('/news/{page}', [\App\Http\Controllers\ArticleController::class, 'page'])->name('page');
+
+
+Auth::routes();
+
+//Route::get('/', function() {
+//    return view('roles/index');
+//});
+Route::get('', [HomeController::class, 'index']);
