@@ -9,11 +9,5 @@ class News extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'heading', 'content'
-    ];
-
-    protected  $hidden = [
-        'news_id', 'user_id'
-    ];
+    protected $guarded = [];
 }

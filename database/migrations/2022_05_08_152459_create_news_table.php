@@ -19,6 +19,7 @@ class CreateNewsTable extends Migration
             $table->string('heading');
             $table->longText('summary');
             $table->LongText('content');
+            $table->string('image');
             $table->timestamps();
             $table->foreign('user_name')->references('name')->on('users');
         });

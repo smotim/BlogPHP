@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Токен CSRF -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel 8 User Roles and Permissions Tutorial') }}</title>
+    <title>Roles</title>
     <!-- Скрипты -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Шрифты -->

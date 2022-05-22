@@ -36,6 +36,9 @@ Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logou
 
 Route::get('/news/{page}', [\App\Http\Controllers\ArticleController::class, 'page'])->name('page');
 
+Route::get('/post', [\App\Http\Controllers\PostController::class, 'index']);
+Route::post('/post/publish', [\App\Http\Controllers\PostController::class, 'store']);
+
 
 Auth::routes();
 
