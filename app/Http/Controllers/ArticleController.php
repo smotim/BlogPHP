@@ -15,6 +15,7 @@ class ArticleController extends Controller
         $summary = $page->summary;
         $article = $page->content;
         $created_at = $page->created_at;
+        $image = $page->image;
 
         return view('article', [
             'title' => $title,
@@ -22,7 +23,9 @@ class ArticleController extends Controller
             'user_name' => $user_name,
             'heading' => $heading,
             'article' => $article,
-            'created_at' => $created_at
+            'created_at' => $created_at,
+            'page' => $id,
+            'image' => $image
         ]);
     }
 }

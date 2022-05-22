@@ -19,20 +19,21 @@ class PostController extends Controller
     }
 
     public function store(Request $request){
-        $data = $request->all();
+        $data = $request->except('image');
 //
-        $filename    = $data['image']->getClientOriginalName();
+        $image = $request->file('image');
+        $filename = $image->getClientOriginalName();
 //
 //        //Сохраняем оригинальную картинку
-        $data['image']->move(Storage::path('/public/image/news/').'origin/',$filename);
+        $image->move(Storage::path('/public/image/news/').'origin/',$filename);
 //
 //        //Создаем миниатюру изображения и сохраняем ее
-        $thumbnail = Image::make(Storage::path('/public/image/news/').'origin/'.$filename);
-        $thumbnail->fit(300, 300);
-        $thumbnail->save(Storage::path('/public/image/news/').'thumbnail/'.$filename);
+        //$thumbnail = Image::make(Storage::path('/public/image/news/').'origin/'.$filename);
+        //$thumbnail->fit(300, 300)->encode();
+        //$thumbnail->save(Storage::path('/public/image/news/').'thumbnail/'.$filename);
 //
 //        //Сохраняем новость в БД
-        $data['image'] = $filename;
+//        $data['image'] = $filename;
 //        News::create($data);
 
         $news = new News([
@@ -40,7 +41,7 @@ class PostController extends Controller
             'summary' => $data['summary'],
             'user_name' => $data['name'],
             'content' => $data['content'],
-            //'image' => $data['image']
+            'image' => $filename
         ]);
         $news->save();
         return redirect('/news');
