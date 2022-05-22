@@ -27,6 +27,8 @@
         @endforeach
     </div>
 </div>
+{{ $news->links('vendor.pagination.simple-bootstrap-4')}}
+
 </body>
 @endsection
 
