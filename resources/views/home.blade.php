@@ -23,7 +23,7 @@
             <p class="text-muted">
                 {{ $post->user_name  }}
             </p>
-            <button type="button" class="btn btn-primary">Read more</button>
+            <button type="button" href="#" class="btn btn-primary">Read more</button>
         @endforeach
     </div>
 </div>

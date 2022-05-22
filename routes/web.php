@@ -25,13 +25,13 @@ use App\Http\Controllers\UserController;
 
 //Auth::routes();
 Route::get('/auth', [App\Http\Controllers\AuthController::class, 'index'])->name('auth');
-// TODO создать роут для новостной ленты и закрепить его на пустую строку. авторизации сделать auth
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
 });
-
+//Отдельные страницы для новостей
 Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news');
+//Выход из аккаунта
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
 Route::get('/news/{page}', [\App\Http\Controllers\ArticleController::class, 'page'])->name('page');
@@ -45,4 +45,5 @@ Auth::routes();
 //Route::get('/', function() {
 //    return view('roles/index');
 //});
+//Лента новостей
 Route::get('', [HomeController::class, 'index']);

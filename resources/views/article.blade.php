@@ -2,9 +2,11 @@
 @section('content')
 
 {{--<a href="{{ route('page.show', ['page' => $pages->id]) }}">ссылка</a>--}}
-<h4><strong>{{$heading}}</strong></h4>
+<h3><strong>{{$heading}}</strong></h3>
 <p class="text-muted">
-    {{ $summary}}
+    <h5>{{ $summary}}</h5>
+<div><img src="{{ asset('storage/image/news/origin/'.$image) }}" alt="" width="800"></div>
+<p>{{$article}}</p>
 </p>
-<button type="button" class="btn btn-primary">Read more</button>
+
 @endsection
