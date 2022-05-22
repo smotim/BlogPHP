@@ -26,7 +26,8 @@
             <button type="button" class="btn btn-primary">Read more</button>
         @endforeach
     </div>
-</div>        {{ $news->links(('vendor.pagination.simple-bootstrap-4')) }}
+</div>
+{{ $news->links('vendor.pagination.simple-bootstrap-4')}}
 
 </body>
 
