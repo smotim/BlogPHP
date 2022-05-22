@@ -26,18 +26,8 @@
             <button type="button" class="btn btn-primary">Read more</button>
         @endforeach
     </div>
-</div>
-<nav>
-    <ul class="pagination">
-        <li class="page-item disabled"><a href="#" class="page-link" tabindex="-1">Previous</a></li>
-        <li class="page-item active"><a href="#" class="page-link">1</a></li>
-        <li class="page-item"><a href="#" class="page-link">2</a></li>
-        <li class="page-item"><a href="#" class="page-link">3</a></li>
-        <li class="page-item"><a href="#" class="page-link">4</a></li>
-        <li class="page-item"><a href="#" class="page-link">5</a></li>
-        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-    </ul>
-</nav>
+</div>        {{ $news->links(('vendor.pagination.simple-bootstrap-4')) }}
+
 </body>
 
 @endsection
