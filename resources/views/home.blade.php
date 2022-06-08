@@ -11,6 +11,7 @@
     <div class="col-md-6 mb-4">
         <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">News of the day</span>
         @foreach ($news  as $post)
+            <div><img src="{{ asset('storage/image/news/origin/'.$post->image) }}" alt="Картинка к новости" width="800"></div>
             <h4><strong>{{ $post->heading}}</strong></h4>
             <h6>{{$post->summary}}</h6>
             <p class="text-muted">

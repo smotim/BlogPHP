@@ -6,7 +6,7 @@
 <p class="text-muted">
     <h5>{{ $summary}}</h5>
 <div><img src="{{ asset('storage/image/news/origin/'.$image) }}" alt="" width="800"></div>
-<p>{{$article}}</p>
+<p>{!! $article !!}</p>
 </p>
 
 @endsection
