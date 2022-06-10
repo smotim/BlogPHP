@@ -12,9 +12,9 @@ class HomePageTest extends TestCase
      *
      * @return void
      */
-    public function test_example()
+    public function test_pagination()
     {
-        $news = News::factory()->make();
-        $this->assertTrue(true);
+        $response = $this->post('?page=2');
+        $response->assertStatus(200);
     }
 }

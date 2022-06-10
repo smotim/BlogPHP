@@ -8,5 +8,9 @@
 <div><img src="{{ asset('storage/image/news/origin/'.$image) }}" alt="" width="800"></div>
 <p>{!! $article !!}</p>
 </p>
-
+@foreach($comments as $comment)
+    <h4><strong>{{ $comment->user_name}}</strong></h4>
+    <h6>{{$comment->comment}}</h6>
+@endforeach
+<div><a href={{"/post/comment/".$page}} id="comment" class="btn btn-outline-danger">Оставить коммент</a></div>
 @endsection
