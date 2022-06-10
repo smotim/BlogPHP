@@ -10,4 +10,8 @@ class News extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function comments(){
+        return $this->belongsToMany(Comment::class, 'comments');
+    }
 }

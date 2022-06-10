@@ -3,5 +3,5 @@
 it('has news page', function () {
     $response = $this->get('/auth/roles');
 
-    $response->assertStatus(500);
+    $response->assertStatus(404);
 });

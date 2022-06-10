@@ -16,6 +16,7 @@ class ArticleController extends Controller
         $article = $page->content;
         $created_at = $page->created_at;
         $image = $page->image;
+        $comments = (new CommentController)->show($id);
 
         return view('article', [
             'title' => $title,
@@ -25,7 +26,8 @@ class ArticleController extends Controller
             'article' => $article,
             'created_at' => $created_at,
             'page' => $id,
-            'image' => $image
+            'image' => $image,
+            'comments' => $comments
         ]);
     }
 }

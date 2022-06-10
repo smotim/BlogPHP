@@ -2,9 +2,11 @@
 
 namespace Tests\Feature;
 
+use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 
@@ -26,6 +28,12 @@ class PublishPostTest extends TestCase
             'image' => $file
         ]);
 
-        $response->assertStatus(200);
+        $this->assertDatabaseHas('news', [
+            'heading' => 'tes heading',
+            'summary' => 'tet summary',
+            'user_name' => 'tes_user',
+            'content' => 'tes content',
+            'image' => 'avatae.jpg'
+        ]);
     }
 }

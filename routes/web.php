@@ -39,6 +39,9 @@ Route::get('/news/{page}', [\App\Http\Controllers\ArticleController::class, 'pag
 Route::get('/post', [\App\Http\Controllers\PostController::class, 'index']);
 Route::post('/post/publish', [\App\Http\Controllers\PostController::class, 'store']);
 
+Route::get('/post/comment/{id}', [\App\Http\Controllers\CommentController::class, 'create']);
+Route::post('/post/comment/store', [\App\Http\Controllers\CommentController::class, 'store']);
+
 
 Auth::routes();
 
