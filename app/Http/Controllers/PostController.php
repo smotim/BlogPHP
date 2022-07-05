@@ -44,6 +44,6 @@ class PostController extends Controller
             'image' => $filename
         ]);
         $news->save();
-        return redirect('/news');
+        return redirect('');
     }
 }

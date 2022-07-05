@@ -11,11 +11,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home',['news'=> DB::table('news')->paginate(3)]);
-        //$data['news'] = News::all();
-        //return view::make('home', $data);
-        //$editor_data = $_POST['editor1'];
-
+        return view('home',['news'=> DB::table('news')->whereNull('deleted_at')->latest()->paginate(3)]);
     }
 
 }

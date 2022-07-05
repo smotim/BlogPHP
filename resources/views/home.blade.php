@@ -15,7 +15,7 @@
             <h4><strong>{{ $post->heading}}</strong></h4>
             <h6>{{$post->summary}}</h6>
             <p class="text-muted">
-                Автор: {{ $post->user_name  }}
+                Автор: {{ $post->user_name}}
             </p>
             <a type="button" href="/news/{{$post->id}}" class="btn btn-primary" >Read more</a>
         @endforeach

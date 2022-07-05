@@ -17,6 +17,7 @@ class ArticleController extends Controller
         $created_at = $page->created_at;
         $image = $page->image;
         $comments = (new CommentController)->show($id);
+        $deleted_at = $page->deleted;
 
         return view('article', [
             'title' => $title,
@@ -27,7 +28,9 @@ class ArticleController extends Controller
             'created_at' => $created_at,
             'page' => $id,
             'image' => $image,
-            'comments' => $comments
+            'comments' => $comments,
+            'deleted' => $deleted_at
         ]);
     }
+
 }

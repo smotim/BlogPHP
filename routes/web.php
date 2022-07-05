@@ -29,8 +29,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
 });
-//Отдельные страницы для новостей
-Route::get('/news', [\App\Http\Controllers\NewsController::class, 'index'])->name('news');
+
 //Выход из аккаунта
 Route::get('/logout', [\App\Http\Controllers\Auth\LoginController::class, 'logout']);
 
@@ -43,9 +42,7 @@ Route::get('/post/comment/{id}', [\App\Http\Controllers\CommentController::class
 Route::post('/post/comment/store', [\App\Http\Controllers\CommentController::class, 'store']);
 
 Auth::routes();
-
-//Route::get('/', function() {
-//    return view('roles/index');
-//});
 //Лента новостей
 Route::get('', [HomeController::class, 'index']);
+
+Route::get('/news/delete/{page}', [\App\Http\Controllers\ArticleDeleteController::class, 'page'])->name('page');
