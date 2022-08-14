@@ -18,15 +18,15 @@
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
+        "ext-mysqli": "*",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
-        "laravel/sail": "^1.0.1",
+        "laravel/sail": "^1.15",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^5.10",
         "pestphp/pest": "^1.21",
         "pestphp/pest-plugin-laravel": "^1.2",
-        "phpunit/phpunit": "^9.5.10",
-      "ext-mysqli": "*"
+        "phpunit/phpunit": "^9.5.10"
     },
     "autoload": {
         "psr-4": {
